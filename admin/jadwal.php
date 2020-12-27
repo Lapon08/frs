@@ -2,6 +2,7 @@
 
 include 'includes/admin_header.php';
 
+
 ?>
 
 <body id="page-top">
@@ -28,7 +29,7 @@ include 'includes/admin_header.php';
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Comments</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Jadwal</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -43,15 +44,19 @@ include 'includes/admin_header.php';
                             }else {
                                 $source = '';
                             }
+
                             switch ($source) {
-                            
+                                case 'add_jadwal':
+                                    include 'includes/add_jadwal.php';
+                                    break;
+                                case 'edit_jadwal':
+                                    include 'includes/edit_jadwal.php';
+                                    break;                                
                                 default:
-                                    include 'includes/view_all_comment.php';
+                                    include 'includes/view_all_jadwal.php';
                                     break;
                             }
-                    
-                    
-                    
+
                         ?>
 
                         <!-- </div> -->
@@ -63,15 +68,15 @@ include 'includes/admin_header.php';
             </div>
             <!-- End of Main Content -->
 
-
-
-        </div>
-        <!-- End of Content Wrapper -->
             <!-- Footer -->
             <?php 
                 include 'includes/admin_copyright.php';         
             ?>
             <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
     </div>
     <!-- End of Page Wrapper -->
 
@@ -81,6 +86,7 @@ include 'includes/admin_header.php';
     </a>
 
     <!-- Logout Modal-->
-    <?php include 'logout_modal.php';?>
+    <?php include 'includes/logout_modal.php';?>
+
 
     <?php include 'includes/admin_footer.php'; ?>

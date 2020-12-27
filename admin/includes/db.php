@@ -6,6 +6,4 @@ $password = '';
 $database = 'frs_db';
 $connection = mysqli_connect($server,$user,$password,$database);
 
-
-
 ?>

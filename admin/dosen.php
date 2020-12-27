@@ -29,7 +29,7 @@ include 'includes/admin_header.php';
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Jurusan</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Dosen</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -46,14 +46,14 @@ include 'includes/admin_header.php';
                             }
 
                             switch ($source) {
-                                case 'add_jurusan':
-                                    include 'includes/add_jurusan.php';
+                                case 'add_dosen':
+                                    include 'includes/add_dosen.php';
                                     break;
-                                case 'edit_jurusan':
-                                    include 'includes/edit_jurusan.php';
+                                case 'edit_dosen':
+                                    include 'includes/edit_dosen.php';
                                     break;                                
                                 default:
-                                    include 'includes/view_all_jurusan.php';
+                                    include 'includes/view_all_dosen.php';
                                     break;
                             }
                     

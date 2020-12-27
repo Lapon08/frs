@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon">
         <i class="fas fa-user"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">FRS</div>
+    <div class="sidebar-brand-text mx-3">CMS</div>
 </a>
 
 <!-- Divider -->
@@ -23,7 +23,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Blog
+    ADMIN
 </div>
 
 <!-- Nav Item - Posts Menu -->
@@ -31,13 +31,73 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-tasks fa-cog"></i>
-        <span>Posts</span>
+        <span>Jurusan</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Posts Components:</h6>
-            <a class="collapse-item" href="posts.php">View All Posts</a>
-            <a class="collapse-item" href="posts.php?source=add_post">Add Posts</a>
+            <h6 class="collapse-header">Jurusan Components:</h6>
+            <a class="collapse-item" href="posts.php">View All Jurusan</a>
+            <a class="collapse-item" href="posts.php?source=add_post">Add Jurusan</a>
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-tasks fa-cog"></i>
+        <span>Dosen</span>
+    </a>
+    <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Dosen Components:</h6>
+            <a class="collapse-item" href="dosen.php">View All Dosen</a>
+            <a class="collapse-item" href="dosen.php?source=add_dosen">Add Dosen</a>
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo2"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-tasks fa-cog"></i>
+        <span>Mahasiswa</span>
+    </a>
+    <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Mahasiswa Components:</h6>
+            <a class="collapse-item" href="mahasiswa.php">View All Mahasiswa</a>
+            <a class="collapse-item" href="mahasiswa.php?source=add_mahasiswa">Add Mahasiswa</a>
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo3"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-tasks fa-cog"></i>
+        <span>Mata Kuliah</span>
+    </a>
+    <div id="collapseTwo3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Mata Kuliah Components:</h6>
+            <a class="collapse-item" href="matakuliah.php">View All Mata Kuliah</a>
+            <a class="collapse-item" href="matakuliah.php?source=add_matakuliah">Add Mata Kuliah</a>
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo4"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-tasks fa-cog"></i>
+        <span>Jadwal</span>
+    </a>
+    <div id="collapseTwo4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Jadwal Components:</h6>
+            <a class="collapse-item" href="jadwal.php">View All Jadwal</a>
+            <a class="collapse-item" href="jadwal.php?source=add_jadwal">Add Jadwal</a>
         </div>
     </div>
 </li>

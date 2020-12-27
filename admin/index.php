@@ -35,13 +35,7 @@ include 'includes/admin_header.php';
                     <div class="row">
 
                         <!-- Users -->
-                        <?php 
-                            $query = "SELECT * FROM users";
-                            $select_all_user = mysqli_query($connection,$query);
-                            $user_counts = mysqli_num_rows($select_all_user);
 
-
-                        ?>
 
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
@@ -50,7 +44,7 @@ include 'includes/admin_header.php';
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 User</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $user_counts?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -62,16 +56,6 @@ include 'includes/admin_header.php';
 
 
 
-
-                        <!-- Post -->
-                        <?php 
-                            $query = "SELECT * FROM posts";
-                            $select_all_post = mysqli_query($connection,$query);
-                            $post_counts = mysqli_num_rows($select_all_post);
-
-
-                        ?>
-
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
@@ -79,7 +63,7 @@ include 'includes/admin_header.php';
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Post</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $post_counts?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-tasks fa-2x text-gray-300"></i>
@@ -90,13 +74,7 @@ include 'includes/admin_header.php';
                         </div>
 
                         <!-- Comments -->
-                        <?php 
-                            $query = "SELECT * FROM comments";
-                            $select_all_comment = mysqli_query($connection,$query);
-                            $comment_counts = mysqli_num_rows($select_all_comment);
 
-
-                        ?>
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -104,7 +82,7 @@ include 'includes/admin_header.php';
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Comment</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $comment_counts;?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -115,13 +93,7 @@ include 'includes/admin_header.php';
                         </div>
 
                         <!-- Categories -->
-                        <?php 
-                            $query = "SELECT * FROM categories";
-                            $select_all_category = mysqli_query($connection,$query);
-                            $category_counts = mysqli_num_rows($select_all_category);
 
-
-                        ?>
 
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
@@ -130,7 +102,7 @@ include 'includes/admin_header.php';
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Categories</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $category_counts;?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-bars fa-2x text-gray-300"></i>

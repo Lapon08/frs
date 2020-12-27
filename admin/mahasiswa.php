@@ -29,7 +29,7 @@ include 'includes/admin_header.php';
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Posts</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Mahasiswa</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -46,14 +46,14 @@ include 'includes/admin_header.php';
                             }
 
                             switch ($source) {
-                                case 'add_post':
-                                    include 'includes/add_post.php';
+                                case 'add_mahasiswa':
+                                    include 'includes/add_mahasiswa.php';
                                     break;
-                                case 'edit_post':
-                                    include 'includes/edit_post.php';
+                                case 'edit_mahasiswa':
+                                    include 'includes/edit_mahasiswa.php';
                                     break;                                
                                 default:
-                                    include 'includes/view_all_post.php';
+                                    include 'includes/view_all_mahasiswa.php';
                                     break;
                             }
                     
@@ -88,7 +88,7 @@ include 'includes/admin_header.php';
     </a>
 
     <!-- Logout Modal-->
-    <?php include 'logout_modal.php';?>
+    <?php include 'includes/logout_modal.php';?>
 
 
     <?php include 'includes/admin_footer.php'; ?>

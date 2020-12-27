@@ -2,6 +2,7 @@
 
 include 'includes/admin_header.php';
 
+
 ?>
 
 <body id="page-top">
@@ -28,7 +29,7 @@ include 'includes/admin_header.php';
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Users</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Mata Kuliah</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -45,14 +46,14 @@ include 'includes/admin_header.php';
                             }
 
                             switch ($source) {
-                                case 'add_user':
-                                    include 'includes/add_user.php';
+                                case 'add_matakuliah':
+                                    include 'includes/add_matakuliah.php';
                                     break;
-                                case 'edit_user':
-                                    include 'includes/edit_user.php';
+                                case 'edit_matakuliah':
+                                    include 'includes/edit_matakuliah.php';
                                     break;                                
                                 default:
-                                    include 'includes/view_all_user.php';
+                                    include 'includes/view_all_matakuliah.php';
                                     break;
                             }
                     
@@ -87,6 +88,7 @@ include 'includes/admin_header.php';
     </a>
 
     <!-- Logout Modal-->
-    <?php include 'logout_modal.php';?>
+    <?php include 'includes/logout_modal.php';?>
+
 
     <?php include 'includes/admin_footer.php'; ?>
