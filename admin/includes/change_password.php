@@ -5,29 +5,29 @@
     $confirm_password = $_POST['confirm_password'];
     if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
 
-    if (isset($_SESSION['user_id'])) {
-        $user_id = $_SESSION['user_id'];
+    if (isset($_SESSION['admin_id'])) {
+        $admin_id = $_SESSION['admin_id'];
     }else {
         header("Location: login.php");
     }
     // password lebih dari 8
     if (strlen($new_password) > 8) {
-        $query = "SELECT user_password FROM users WHERE `user_id` = '$user_id'";
-        $select_user = mysqli_query($connection,$query);
-        confirm($select_user);
+        $query = "SELECT admin_password FROM `admin` WHERE `admin_id` = '$admin_id'";
+        $select_admin = mysqli_query($connection,$query);
+        confirm($select_admin);
     
-        while($row = mysqli_fetch_assoc($select_user)){
-            $user_password = $row['user_password'];
+        while($row = mysqli_fetch_assoc($select_admin)){
+            $admin_password = $row['admin_password'];
     
         }
         // apakah current password sama atau tidak
-        $db_user_password = password_verify($current_password,$user_password);
+        $db_admin_password = password_verify($current_password,$admin_password);
         
         if ($new_password === $confirm_password) {
         
-            if ($current_password == $db_user_password ) {
+            if ($current_password == $db_admin_password ) {
                 $new_password = password_hash($new_password,PASSWORD_DEFAULT);
-                $query = "UPDATE users SET user_password = '$new_password' WHERE `user_id` = '$user_id' ";
+                $query = "UPDATE `admin` SET admin_password = '$new_password' WHERE `admin_id` = '$admin_id' ";
                 $change_password = mysqli_query($connection,$query);
                 confirm($change_password); ?>
                     <div class="alert alert-primary" role="alert" style="margin-left: 10px;">
@@ -76,7 +76,6 @@
         <label for="post_tags">Confirm Password</label>
         <input type="password" class="form-control" name="confirm_password" ">
     </div>
-
 
     <div class="form-group">
         <a href="profile.php?source=change_password"><input class="btn btn-primary" type="submit" name="change_password" value="Change Password"></a>

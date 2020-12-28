@@ -1,63 +1,33 @@
-<?php if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $query = "SELECT * FROM users WHERE `user_id` = '$user_id'";
-    $select_user = mysqli_query($connection,$query);
-    confirm($select_user);
+<?php if (isset($_SESSION['admin_id'])) {
+    $admin_id = $_SESSION['admin_id'];
+    $query = "SELECT * FROM admin WHERE `admin_id` = '$admin_id'";
+    $select_admin = mysqli_query($connection,$query);
+    confirm($select_admin);
 
-    while($row = mysqli_fetch_assoc($select_user)){
-        $user_username = $row['user_username'];
-        $user_firstname = $row['user_firstname'];
-        $user_lastname = $row['user_lastname'];
-        $user_email = $row['user_email'];
-        $user_role = $row['user_role'];
-        $user_image = $row['user_image'];
+    while($row = mysqli_fetch_assoc($select_admin)){
+        $admin_nama = $row['admin_nama'];
+        $admin_email = $row['admin_email'];
+        $admin_alamat = $row['admin_alamat'];
     }
-
-
 } ?>
 
 <div class="col-lg-12">
-<form action="" method="post" enctype="multipart/form-data">
-
+<form action="" method="post">
     <div class="form-group">
-        <img class="img-profile2" src="../images/profile/<?php echo $user_image ?>" alt="">
+        <label for="author">Nama Admin</label>
+        <input type="text" class="form-control" name="admin_nama" value="<?php echo $admin_nama ?>" readonly>
     </div>
 
     <div class="form-group">
-        <label for="author">Username</label>
-        <input type="text" class="form-control" name="user_username" value="<?php echo $user_username ?>" readonly>
-    </div>
-
-
-
-    <div class="form-group">
-        <label for="post_status">Firstname</label>
-        <input type="text" class="form-control" name="user_firstname" value="<?php echo $user_firstname ?>" readonly>
+        <label for="post_status">Email Admin</label>
+        <input type="text" class="form-control" name="admin_email" value="<?php echo $admin_email ?>" readonly>
     </div>
 
 
     <div class="form-group">
-        <label for="post_tags">Lastname</label>
-        <input type="text" class="form-control" name="user_lastname" value="<?php echo $user_lastname ?>" readonly>
+        <label for="post_tags">alamat Admin</label>
+        <input type="text" class="form-control" name="admin_alamat" value="<?php echo $admin_alamat ?>" readonly>
     </div>
-
-    <div class="form-group">
-        <label for="post_tags">Email</label>
-        <input type="email" class="form-control" name="user_email" value="<?php echo $user_email ?>" readonly>
-    </div>
-
-
-    <!-- <div class="form-group">
-        <label for="image">Lastname</label>
-        <input type="file" name="image">
-    </div> -->
-
-    <div class="form-group">
-        <label for="post_tags">User Role</label>
-        <input type="text" class="form-control" name="user_password" value="<?php echo $user_role?>" readonly>
-    </div>
-
-
 
     <div class="form-group">
         <a href="profile.php?source=edit_profile" class="badge badge-primary" style="padding: 15px;">Edit Profile</a>

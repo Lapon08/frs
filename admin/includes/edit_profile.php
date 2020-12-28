@@ -1,60 +1,38 @@
-<?php if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $query = "SELECT * FROM users WHERE `user_id` = '$user_id'";
-    $select_user = mysqli_query($connection,$query);
-    confirm($select_user);
+<?php if (isset($_SESSION['admin_id'])) {
+    $admin_id = $_SESSION['admin_id'];
+    $query = "SELECT * FROM admin WHERE `admin_id` = '$admin_id'";
+    $select_admin = mysqli_query($connection,$query);
+    confirm($select_admin);
 
-    while($row = mysqli_fetch_assoc($select_user)){
-        $user_username = $row['user_username'];
-        $user_firstname = $row['user_firstname'];
-        $user_lastname = $row['user_lastname'];
-        $user_email = $row['user_email'];
-        $user_role = $row['user_role'];
-        $user_image = $row['user_image'];
-
+    while($row = mysqli_fetch_assoc($select_admin)){
+        $admin_nama = $row['admin_nama'];
+        $admin_email = $row['admin_email'];
+        $admin_alamat = $row['admin_alamat'];
     }
-
-
 } ?>
 
 
 <?php 
 if (isset($_POST['edit_profile'])) {
-    if (!empty($_POST['user_username']) && !empty($_POST['user_firstname']) &&
-    !empty($_POST['user_lastname']) && !empty($_POST['user_email']) ) {
-        # code...
-    
+    if (!empty($_POST['admin_nama']) && !empty($_POST['admin_email']) &&
+    !empty($_POST['admin_alamat']) ) {
+        $admin_nama = $_POST['admin_nama'];
+        $admin_email = $_POST['admin_email'];
+        $admin_alamat = $_POST['admin_alamat'];
 
-    $user_username = $_POST['user_username'];
-    $user_firstname = $_POST['user_firstname'];
-    $user_lastname = $_POST['user_lastname'];
-    $user_email = $_POST['user_email'];
-    $user_image_new = $_FILES['image']['name'];
-    $user_image_temp = $_FILES['image']['tmp_name'];
+    $admin_email = mysqli_real_escape_string($connection,$admin_email);
+    $admin_alamat = mysqli_real_escape_string($connection,$admin_alamat);
+    $admin_nama = mysqli_real_escape_string($connection,$admin_nama);
 
-    if ( empty($user_image_new) ) {
-        $user_image_new = $user_image;
-    }
-
-    $user_firstname = mysqli_real_escape_string($connection,$user_firstname);
-    $user_lastname = mysqli_real_escape_string($connection,$user_lastname);
-    $user_username = mysqli_real_escape_string($connection,$user_username);
-    $user_email = mysqli_real_escape_string($connection,$user_email);
-    $user_image_new = mysqli_real_escape_string($connection,$user_image_new);
-    
-    move_uploaded_file($user_image_temp,"../images/profile/$user_image_new");
-    $query = "UPDATE users SET user_username = '$user_username', 
-                    user_firstname = '$user_firstname',
-                    user_lastname = '$user_lastname', 
-                    user_email = '$user_email', 
-                    user_image = '$user_image_new' 
-                    WHERE `user_id` = $user_id";
+    $query = "UPDATE `admin` SET admin_nama = '$admin_nama', 
+                    admin_email = '$admin_email',
+                    admin_alamat = '$admin_alamat', 
+                    admin_nama = '$admin_nama' WHERE admin_id = '$admin_id'";
     $user_profile_update = mysqli_query($connection,$query);
     confirm($user_profile_update);
-    $_SESSION['user_username'] = $user_username;
-    $_SESSION['user_email'] = $user_email;
-    $_SESSION['user_firstname'] = $user_firstname;
-    $_SESSION['user_lastname'] = $user_lastname;
+    $_SESSION['admin_nama'] = $admin_nama;
+    $_SESSION['admin_email'] = $admin_email;
+    $_SESSION['admin_alamat'] = $admin_alamat;
     
     
     ?>
@@ -75,40 +53,23 @@ if (isset($_POST['edit_profile'])) {
 ?>
 
 <div class="col-lg-12">
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post">
 
     <div class="form-group">
-        <img class="img-profile2" src="../images/profile/<?php echo $user_image ?>" alt="">
-        <input type="file" name="image" >
+        <label for="author">Nama Admin</label>
+        <input type="text" class="form-control" name="admin_nama" value="<?php echo $admin_nama ?>">
     </div>
 
     <div class="form-group">
-        <label for="author">Username</label>
-        <input type="text" class="form-control" name="user_username" value="<?php echo $user_username ?>">
-    </div>
-
-    <div class="form-group">
-        <label for="post_status">Firstname</label>
-        <input type="text" class="form-control" name="user_firstname" value="<?php echo $user_firstname ?>">
+        <label for="post_status">Email Admin</label>
+        <input type="text" class="form-control" name="admin_email" value="<?php echo $admin_email ?>">
     </div>
 
 
     <div class="form-group">
-        <label for="post_tags">Lastname</label>
-        <input type="text" class="form-control" name="user_lastname" value="<?php echo $user_lastname ?>">
+        <label for="post_tags">alamat Admin</label>
+        <input type="text" class="form-control" name="admin_alamat" value="<?php echo $admin_alamat ?>">
     </div>
-
-    <div class="form-group">
-        <label for="post_tags">Email</label>
-        <input type="email" class="form-control" name="user_email" value="<?php echo $user_email ?>">
-    </div>
-
-
-    <!-- <div class="form-group">
-        <label for="image">Lastname</label>
-        <input type="file" name="image">
-    </div> -->
-
 
     <div class="form-group">
         <a href="profile.php?source=edit_profile"><input class="btn btn-primary" type="submit" name="edit_profile" value="Update Profile"></a>

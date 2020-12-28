@@ -13,6 +13,8 @@
                     $mk_kode = $row['mk_kode'];
                     $mk_nama = $row['mk_nama'];
                     $dosen_id = $row['dosen_id'];
+                    $dosen_nama_db = $row['dosen_nama'];
+                    $jurusan_nama_db = $row['jurusan_nama'];
                     $jurusan_id = $row['jurusan_id'];
                 endwhile; ?>
 
@@ -79,10 +81,14 @@
                                     $select_jurusan = mysqli_query($connection,$query);
                                     while ($row = mysqli_fetch_assoc($select_jurusan)) {
                                         $jurusan_id = $row['jurusan_id'];
-                                        $jurusan_nama = $row['jurusan_nama']; ?>
+                                        $jurusan_nama = $row['jurusan_nama']; 
+                                        if ($jurusan_nama==$jurusan_nama_db) { ?>
+                                            <option value="<?php echo $jurusan_id ?>" selected > <?php echo $jurusan_nama?> </option>
+                                        <?php }else { ?>
+
                                         <option value="<?php echo $jurusan_id ?>"  > <?php echo $jurusan_nama?> </option>
                                     
-                                    <?php }                                
+                                    <?php }  }                              
                                 ?>
                                 </select>
                                 </div>
@@ -95,10 +101,14 @@
                                     $select_dosen = mysqli_query($connection,$query);
                                     while ($row = mysqli_fetch_assoc($select_dosen)) {
                                         $dosen_id = $row['dosen_id'];
-                                        $dosen_nama = $row['dosen_nama']; ?>
+                                        $dosen_nama = $row['dosen_nama']; 
+                                        if ($dosen_nama_db == $dosen_nama) { ?>
+                                            <option value="<?php echo $dosen_id ?>" selected > <?php echo $dosen_nama?> </option>
+                                        <?php }else { 
+                                        ?>
                                         <option value="<?php echo $dosen_id ?>" > <?php echo $dosen_nama?> </option>
                                     
-                                    <?php }                                
+                                    <?php } }                               
                                 ?>
                                 </select>
                                 </div>

@@ -4,12 +4,8 @@
 
 
 <div  style="margin-top:15px; margin-bottom:20px">
-        <a href="mata_kuliah.php?source=add_mahasiswa" class="btn btn-primary">Add New Jurusan</a>
+        <a href="matakuliah.php?source=add_matakuliah" class="btn btn-primary">Add New Matakuliah</a>
 </div>
-
-
-
-
 
     <div class="card shadow mb-4">
                             <div class="card-header py-3">

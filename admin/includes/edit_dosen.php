@@ -14,7 +14,7 @@
                     $dosen_hp = $row['dosen_hp'];
                     $dosen_nidn = $row['dosen_nidn'];
                     $jurusan_id = $row['jurusan_id'];
-                    $jurusan_nama = $row['jurusan_nama'];
+                    $jurusan_nama_db = $row['jurusan_nama'];
                 endwhile; ?>
 
         <?php 
@@ -81,9 +81,15 @@
                 $select_jurusan = mysqli_query($connection,$query);
                 while ($row = mysqli_fetch_assoc($select_jurusan)) {
                     $jurusan_id = $row['jurusan_id'];
-                    $jurusan_nama = $row['jurusan_nama']; ?>
-                    <option value="<?php echo $jurusan_id ?>"  > <?php echo $jurusan_nama?> </option>
-                <?php }                                
+                    $jurusan_nama = $row['jurusan_nama']; 
+                    if ($jurusan_nama == $jurusan_nama_db) { ?>
+                        <option value="<?php echo $jurusan_id ?>" selected> <?php echo $jurusan_nama?> </option>
+                    <?php }else {
+                        
+                    
+                    ?>
+                    <option value="<?php echo $jurusan_id ?>"> <?php echo $jurusan_nama?> </option>
+                <?php } }                               
             ?>
             </select>
             </div>

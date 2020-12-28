@@ -1,23 +1,10 @@
 <?php 
     include 'includes/db.php';
-    include 'function.php';
-    // include 'includes/header.php';
+    include 'includes/function.php';
+    ob_start();
     session_start();
-?>
-
-<?php 
-    if (isset($_SESSION['user_role'])) {
-        $user_role = $_SESSION['user_role'];
-        if ($user_role == 'admin') {
-            header("Location: index.php");
-        }else {
-            header("Location: ../index.php");
-        }
-    }
-
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -31,19 +18,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog - Naufal Aprilian Marsa Mahendra</title>
+    <title>FRS</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/FRS/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/FRS/admin/css/sb-admin-2.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/FRS/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
 
 </head>
@@ -58,23 +44,21 @@
 
 if (isset($_POST['login'])) {
 
-    $user_email = $_POST['email'];
-    $user_password = $_POST['password'];
-    if (!empty($user_email) && !empty($user_password)) {
-        
-    
+    $admin_email = $_POST['email'];
+    $admin_password = $_POST['password'];
+    if (!empty($admin_email) && !empty($admin_password)) {
 
-    $user_email = mysqli_real_escape_string($connection,$user_email);
-    $user_password = mysqli_real_escape_string($connection,$user_password);
+    $admin_email = mysqli_real_escape_string($connection,$admin_email);
+    $admin_password = mysqli_real_escape_string($connection,$admin_password);
 
-    $query = "SELECT * FROM users WHERE user_email = '$user_email'";
+    $query = "SELECT * FROM `admin` WHERE admin_email = '$admin_email'";
     $select_user_query = mysqli_query($connection,$query);
     $count = mysqli_num_rows($select_user_query);
     confirm($select_user_query);
     if ($count < 1) { ?>
-                            <div class="col-md-8 col-lg-7 text-center align-content-center mx-auto ">
+                <div class="col-md-8 col-lg-7 text-center align-content-center mx-auto ">
                 <div class="alert alert-danger" role="alert">
-                    Login Failed ! <strong> username/password</strong> Incorrect
+                    Login Failed ! <strong> email/password</strong> Incorrect
                 </div>  
                 </div>
     <?php }else {
@@ -82,26 +66,23 @@ if (isset($_POST['login'])) {
     
 
     while($row = mysqli_fetch_assoc($select_user_query)){
-        $db_user_id = $row['user_id'];
-        $db_user_firstname = $row['user_firstname'];
-        $db_user_lastname = $row['user_lastname'];
-        $db_user_username = $row['user_username'];
-        $db_user_role = $row['user_role'];
-        $db_user_email = $row['user_email'];
-        $db_user_password = $row['user_password'];
+        $db_admin_id = $row['admin_id'];
+        $db_admin_nama = $row['admin_nama'];
+        $db_admin_email = $row['admin_email'];
+        $db_admin_password = $row['admin_password'];
 
     }
 
-    $db_user_password = password_verify($user_password,$db_user_password);
-    if ($user_email != $db_user_email) { ?>
+    $db_admin_password = password_verify($admin_password,$db_admin_password);
+    if ($admin_email != $db_admin_email) { ?>
                 <div class="col-md-8 col-lg-7 text-center align-content-center mx-auto ">
                 <div class="alert alert-danger" role="alert">
                     Login Failed ! <strong> username/password</strong> Incorrect
                 </div>  
                 </div>
     <?php }
-    else if ($user_email == $db_user_email) {
-        if ($user_password != $db_user_password) { ?>
+    else if ($admin_email == $db_admin_email) {
+        if ($admin_password != $db_admin_password) { ?>
                 <div class="col-md-8 col-lg-7 text-center align-content-center mx-auto ">
                 <div class="alert alert-danger" role="alert">
                     Login Failed ! <strong> username/password</strong> Incorrect
@@ -109,12 +90,9 @@ if (isset($_POST['login'])) {
                 </div>
         <?php }else {
         
-        $_SESSION['user_username'] = $db_user_username;
-        $_SESSION['user_email'] = $db_user_email;
-        $_SESSION['user_firstname'] = $db_user_firstname;
-        $_SESSION['user_lastname'] = $db_user_lastname;
-        $_SESSION['user_role'] = $db_user_role;
-        $_SESSION['user_id'] = $db_user_id;
+        $_SESSION['admin_id'] = $db_admin_id;
+        $_SESSION['admin_email'] = $db_admin_email;
+        $_SESSION['admin_nama'] = $db_admin_nama;
         header("Location: index.php");
         }
     }
@@ -159,9 +137,6 @@ if (isset($_POST['login'])) {
                                         <button class="btn btn-primary btn-block btn-user" type="submit" name="login">Login</button>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
                                     <div class="text-center">
                                         <a class="small" href="register.php">Create an Account!</a>
                                     </div>

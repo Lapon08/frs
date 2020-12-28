@@ -1,5 +1,5 @@
 
-                                                <?php 
+                    <?php 
                         // fungsi menambahkan post
                             if (isset($_POST['add_jadwal'])) {
                                 if (!empty($_POST['kelas_hari']) && !empty($_POST['kelas_jam']) &&
@@ -21,16 +21,16 @@
                                 
 
                                     // tambah post
-                                $query = "INSERT INTO `jadwal`(`kelas_hari`, `kelas_jam`, `dosen_id`, `kode_ruangan`, `mk_id`) 
+                                $query = "INSERT INTO `kelas`(`kelas_hari`, `kelas_jam`, `dosen_id`, `kode_ruangan`, `mk_id`) 
                                 VALUES ('$kelas_hari','$kelas_jam','$dosen_id','$kode_ruangan','$mk_id')";
                             
-                                $add_jadwal = mysqli_query($connection,$query);
-                                confirm($add_jadwal);
+                                $add_kelas = mysqli_query($connection,$query);
+                                confirm($add_kelas);
                                 ?>
                                 
                                 <div class="alert alert-primary" role="alert" style="margin-left: 10px;">
-                                Jadwal Added:
-                                <a href="dosen.php"  class="alert-link">View All Jadwal</a>
+                                Kelas Added:
+                                <a href="dosen.php"  class="alert-link">View All Kelas</a>
                                 </div>        
                             <?php 
                             }
@@ -43,10 +43,10 @@
 
                         <!-- Menampilkan seluruh post yang ada -->
                         <div class="col-lg-12">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="" method="post">
                             <label for="jurusan_dosen">Hari Matakuliah</label>
                                 <div class="form-group">
-                                <select name="jurusan_id" id="jurusan_dosen">
+                                <select name="kelas_hari" id="jurusan_dosen">
                                     <option value="senin">senin</option>
                                     <option value="selasa">selasa</option>
                                     <option value="rabu">rabu</option>
@@ -57,9 +57,9 @@
 
                                 </select>
                                 </div>
+                                <label for="kelas_jam">Jam Matakuliah</label>
                                 <div class="form-group">
-                                    <label for="kelas_jam">Jam Matakuliah</label>
-                                    <input type="text" class="form-control" name="kelas_jam">
+                                    <input type="time" class="" name="kelas_jam">
                                 </div>
                                 <div class="form-group">
                                     <label for="kode_ruangan">Kode Ruangan</label>
@@ -102,7 +102,7 @@
 
 
                                 <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" name="add_jadwal" value="Add Dosen">
+                                    <input class="btn btn-primary" type="submit" name="add_jadwal" value="Add Kelas">
                                 </div>
                             </form>
                         </div>

@@ -36,14 +36,13 @@ include 'includes/admin_header.php';
 
                         <!-- Users -->
 
-
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                User</div>
+                                                Admin</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
@@ -62,7 +61,7 @@ include 'includes/admin_header.php';
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Post</div>
+                                                Mahasiswa</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
@@ -81,7 +80,7 @@ include 'includes/admin_header.php';
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Comment</div>
+                                                Dosen</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
@@ -101,7 +100,7 @@ include 'includes/admin_header.php';
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Categories</div>
+                                                Jurusan</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
@@ -113,7 +112,6 @@ include 'includes/admin_header.php';
                         </div>
 
                     <!-- Content Row -->
-
 
             </div>
             <!-- End of Main Content -->
@@ -128,13 +126,13 @@ include 'includes/admin_header.php';
     </div>
     <!-- End of Page Wrapper -->
     <?php 
-                include 'includes/admin_copyright.php';         
-            ?>
+        include 'includes/admin_copyright.php';         
+    ?>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <?php include 'logout_modal.php';?>
+    <?php include 'includes/logout_modal.php';?>
     
     <?php include 'includes/admin_footer.php'; ?>

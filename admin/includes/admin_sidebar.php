@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon">
         <i class="fas fa-user"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">CMS</div>
+    <div class="sidebar-brand-text mx-3">FRS</div>
 </a>
 
 <!-- Divider -->
@@ -36,8 +36,8 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Jurusan Components:</h6>
-            <a class="collapse-item" href="posts.php">View All Jurusan</a>
-            <a class="collapse-item" href="posts.php?source=add_post">Add Jurusan</a>
+            <a class="collapse-item" href="jurusan.php">View All Jurusan</a>
+            <a class="collapse-item" href="jurusan.php?source=add_jurusan">Add Jurusan</a>
         </div>
     </div>
 </li>
@@ -91,45 +91,32 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo4"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-tasks fa-cog"></i>
-        <span>Jadwal</span>
+        <span>Kelas</span>
     </a>
     <div id="collapseTwo4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Jadwal Components:</h6>
-            <a class="collapse-item" href="jadwal.php">View All Jadwal</a>
-            <a class="collapse-item" href="jadwal.php?source=add_jadwal">Add Jadwal</a>
+            <h6 class="collapse-header">Kelas Components:</h6>
+            <a class="collapse-item" href="kelas.php">View All Kelas</a>
+            <a class="collapse-item" href="kelas.php?source=add_kelas">Add Kelas</a>
         </div>
     </div>
 </li>
 
 <li class="nav-item">
-    <a class="nav-link" href="categories.php">
-        <i class="fas fa-bars fa-chart-area"></i>
-        <span>Categories</span></a>
-</li>
-
-<li class="nav-item">
-    <a class="nav-link" href="comments.php">
-        <i class="fas fa-comments fa-chart-area"></i>
-        <span>Comments</span></a>
-</li>
-
-<!-- Nav Item - Utilities Users Menu -->
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-        aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-users "></i>
-        <span>Users</span>
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo5"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-tasks fa-cog"></i>
+        <span>Admin</span>
     </a>
-    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
+    <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Users Components:</h6>
-            <a class="collapse-item" href="users.php">View All Users</a>
-            <a class="collapse-item" href="users.php?source=add_user">Add User</a>
+            <h6 class="collapse-header">Admin Components:</h6>
+            <a class="collapse-item" href="admin.php">View All Admin</a>
+            <a class="collapse-item" href="admin.php?source=add_admin">Add Admin</a>
         </div>
     </div>
 </li>
+
 <!-- Profile -->
 <li class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile"

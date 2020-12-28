@@ -2,6 +2,7 @@
 
 include 'includes/admin_header.php';
 
+
 ?>
 
 <body id="page-top">
@@ -28,7 +29,7 @@ include 'includes/admin_header.php';
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Profile</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Kelas</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -45,19 +46,17 @@ include 'includes/admin_header.php';
                             }
 
                             switch ($source) {
-                                case 'edit_profile':
-                                    include 'includes/edit_profile.php';
+                                case 'add_kelas':
+                                    include 'includes/add_kelas.php';
                                     break;
-                                case 'change_password':
-                                    include 'includes/change_password.php';
-                                    break;                                 
+                                case 'edit_kelas':
+                                    include 'includes/edit_kelas.php';
+                                    break;                                
                                 default:
-                                    include 'includes/view_profile.php';
+                                    include 'includes/view_all_kelas.php';
                                     break;
                             }
-                    
-                    
-                    
+
                         ?>
 
                         <!-- </div> -->
@@ -88,5 +87,6 @@ include 'includes/admin_header.php';
 
     <!-- Logout Modal-->
     <?php include 'includes/logout_modal.php';?>
+
 
     <?php include 'includes/admin_footer.php'; ?>

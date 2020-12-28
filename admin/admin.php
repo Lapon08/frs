@@ -29,7 +29,7 @@ include 'includes/admin_header.php';
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Jadwal</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Admin</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -46,17 +46,16 @@ include 'includes/admin_header.php';
                             }
 
                             switch ($source) {
-                                case 'add_jadwal':
-                                    include 'includes/add_jadwal.php';
+                                case 'add_admin':
+                                    include 'includes/add_admin.php';
                                     break;
-                                case 'edit_jadwal':
-                                    include 'includes/edit_jadwal.php';
+                                case 'edit_admin':
+                                    include 'includes/edit_admin.php';
                                     break;                                
                                 default:
-                                    include 'includes/view_all_jadwal.php';
+                                    include 'includes/view_all_admin.php';
                                     break;
                             }
-
                         ?>
 
                         <!-- </div> -->

@@ -2,14 +2,25 @@
 <div class="col-lg-12">
 
 
-
+<div  style="margin-top:15px; margin-bottom:20px">
+        
+        <select name="jurusan_id" id="">
+            <?php 
+                $query = "SELECT * FROM jurusan";
+                $list_jurusan = mysqli_query($connection,$query);
+                confirm($list_jurusan);
+                while ($row = mysqli_fetch_assoc($list_jurusan) ) {
+                    $jurusan_id = $row['jurusan_id'];
+                    $jurusan_nama = $row['jurusan_nama'];?>
+                <option value="<?php echo $jurusan_id ?>"><?php echo $jurusan_nama ?></option>
+                <?php }
+            
+            ?>
+        </select>
+</div>
 <div  style="margin-top:15px; margin-bottom:20px">
         <a href="dosen.php?source=add_dosen" class="btn btn-primary">Add New dosen</a>
 </div>
-
-
-
-
 
     <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -91,7 +102,6 @@
                                 </div>
                                 </table>
                             </div>
-
     </div>
 </div>
                         <?php 
