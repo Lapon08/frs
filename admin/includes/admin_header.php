@@ -3,9 +3,9 @@
     include 'function.php';
     ob_start();
     session_start();
-    if (!isset($_SESSION['admin_id'])) {
-        header('Location: /FRS/admin/login.php');
-    }
+if (!isset($_SESSION['admin_email'])) {
+    header("Location: /FRS/admin/login.php");
+}
 
 ?>
 

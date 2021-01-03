@@ -3,7 +3,8 @@
 
 
 <div  style="margin-top:15px; margin-bottom:20px">
-        
+<form action="" method="post">
+        <p style="display: inline;">Select Jurusan: </p>
         <select name="jurusan_id" id="">
             <?php 
                 $query = "SELECT * FROM jurusan";
@@ -14,11 +15,13 @@
                     $jurusan_nama = $row['jurusan_nama'];?>
                 <option value="<?php echo $jurusan_id ?>"><?php echo $jurusan_nama ?></option>
                 <?php }
-            
             ?>
         </select>
+        <input type="submit" name="submit" class="btn btn-success ml-4" value="Apply">
+        </form>
 </div>
 <div  style="margin-top:15px; margin-bottom:20px">
+        
         <a href="dosen.php?source=add_dosen" class="btn btn-primary">Add New dosen</a>
 </div>
 
@@ -46,7 +49,13 @@
                                 <tbody>
 
                                     <?php 
+                                    if (isset($_POST['submit'])) {
+                                        $jurusan_id_filter = $_POST['jurusan_id'];
+                                        $query = "CALL select_dosen_by_jurusan($jurusan_id_filter)";
+                                    }else {
                                         $query = "SELECT * FROM dosen LEFT JOIN jurusan ON dosen.jurusan_id = jurusan.jurusan_id ORDER BY dosen_id DESC";
+                                    }
+                                        
                                         $select_dosen = mysqli_query($connection,$query);
                                         $no = 1; //nomor
                                         while($row = mysqli_fetch_assoc($select_dosen)):

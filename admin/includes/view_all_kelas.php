@@ -32,6 +32,7 @@
                                     <?php 
                                         $query = "SELECT * FROM kelas LEFT JOIN dosen ON kelas.dosen_id = dosen.dosen_id LEFT JOIN mata_kuliah ON mata_kuliah.mk_id = kelas.mk_id  ORDER BY kelas.kelas_id DESC";
                                         $select_kelas = mysqli_query($connection,$query);
+                                        confirm($select_kelas);
                                         $no = 1; //nomor
                                         while($row = mysqli_fetch_assoc($select_kelas)):
                                             $kelas_hari = $row['kelas_hari'];

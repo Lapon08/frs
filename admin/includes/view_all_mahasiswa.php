@@ -1,6 +1,23 @@
 
 <div class="col-lg-12">
-
+<div  style="margin-top:15px; margin-bottom:20px">
+<form action="" method="post">
+        <p style="display: inline;">Select Jurusan: </p>
+        <select name="jurusan_id" id="">
+            <?php 
+                $query = "SELECT * FROM jurusan";
+                $list_jurusan = mysqli_query($connection,$query);
+                confirm($list_jurusan);
+                while ($row = mysqli_fetch_assoc($list_jurusan) ) {
+                    $jurusan_id = $row['jurusan_id'];
+                    $jurusan_nama = $row['jurusan_nama'];?>
+                <option value="<?php echo $jurusan_id ?>"><?php echo $jurusan_nama ?></option>
+                <?php }
+            ?>
+        </select>
+        <input type="submit" name="submit" class="btn btn-success ml-4" value="Apply">
+        </form>
+</div>
 
 
 <div  style="margin-top:15px; margin-bottom:20px">
@@ -32,9 +49,13 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php 
+                                    <?php
+                                    if (isset($_POST['submit'])) {
+                                        $jurusan_id_filter = $_POST['jurusan_id'];
+                                        $query = "CALL select_mahasiswa_by_jurusan($jurusan_id_filter)";
+                                    }else {                                        
                                         $query = "SELECT * FROM mahasiswa LEFT JOIN jurusan ON mahasiswa.jurusan_id = jurusan.jurusan_id LEFT JOIN dosen ON mahasiswa.dosen_id = dosen.dosen_id  ORDER BY mahasiswa.mahasiswa_id DESC";
-                                        $select_mahasiswa = mysqli_query($connection,$query);
+                                    }$select_mahasiswa = mysqli_query($connection,$query);
                                         $no = 1; //nomor
                                         while($row = mysqli_fetch_assoc($select_mahasiswa)):
                                             $mahasiswa_id = $row['mahasiswa_id'];

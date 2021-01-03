@@ -16,7 +16,7 @@
                                 confirm($add_mahasiswa);
                                 ?>
                                 
-                                <div class="alert alert-primary" role="alert" style="margin-left: 10px;">
+                                <div class="alert alert-primary col-lg-8" role="alert" style="margin-left: 10px;">
                                 jurusan Added:
                                 <a href="jurusan.php"  class="alert-link">View All Jurusan</a>
                                 </div>        
